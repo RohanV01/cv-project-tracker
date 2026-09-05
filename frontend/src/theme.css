@@ -1,0 +1,107 @@
+/* Pinned to light theme to match the reference design exactly — no longer
+   follows prefers-color-scheme, so it renders identically in every browser
+   (that was the source of the earlier VS Code vs Chrome light/dark mismatch).
+   Dark tokens are kept for a possible future manual toggle (data-theme="dark")
+   but are never applied automatically. */
+:root {
+  --page-bg: #eef1f8;
+  --background: #eef1f8;
+  --foreground: #0b0f19;
+  --card: #ffffff;
+  --card-foreground: #0b0f19;
+  --popover: #ffffff;
+  --popover-foreground: #0b0f19;
+
+  --primary: #3b5bfd;
+  --primary-hover: #2f4be0;
+  --primary-foreground: #ffffff;
+
+  --secondary: #eef0f7;
+  --secondary-foreground: #0b0f19;
+
+  --muted: #f1f3f9;
+  --muted-foreground: #64748b;
+
+  --accent: #e05299;
+  --accent-foreground: #ffffff;
+
+  --destructive: #dc4747;
+  --success: #16a34a;
+  --success-bg: #e7f6ec;
+  --warning: #dc4747;
+  --warning-bg: #fce9e9;
+
+  --border: #e3e6f0;
+  --input: #f1f3f9;
+  --ring: #3b5bfd;
+
+  --segment-track: #eef0f7;
+  --segment-active: #ffffff;
+  --segment-active-foreground: #3b5bfd;
+  --segment-foreground: #64748b;
+
+  --navbar-bg: #ffffff;
+
+  --chart-1: #3b5bfd;
+  --chart-2: #16a34a;
+  --chart-3: #7c3aed;
+  --chart-4: #f59e0b;
+  --chart-5: #64748b;
+
+  --radius: 0.75rem;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-heading: "Manrope", system-ui, sans-serif;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+:root[data-theme="dark"] {
+  --page-bg: #14161c;
+  --background: #14161c;
+  --foreground: #e6e9f0;
+  --card: #1c1f28;
+  --card-foreground: #e6e9f0;
+  --popover: #21242e;
+  --popover-foreground: #e6e9f0;
+
+  --primary: #5c7dfd;
+  --primary-hover: #7591ff;
+  --primary-foreground: #0b0f19;
+
+  --secondary: #262a35;
+  --secondary-foreground: #e6e9f0;
+
+  --muted: #262a35;
+  --muted-foreground: #8b93a7;
+
+  --border: #2b2f3b;
+  --input: #262a35;
+  --ring: #5c7dfd;
+
+  --segment-track: #262a35;
+  --segment-active: #333846;
+  --segment-active-foreground: #a7b6ff;
+  --segment-foreground: #8b93a7;
+
+  --navbar-bg: #1c1f28;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+::selection { background: var(--primary); color: var(--primary-foreground); }

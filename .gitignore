@@ -1,0 +1,9 @@
+backend/.venv/
+backend/data/
+frontend/node_modules/
+frontend/dist/
+*.db
+.env
+__pycache__/
+*.pyc
+reference/.~lock.*
