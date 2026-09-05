@@ -28,11 +28,6 @@ export function TopNav() {
           </NavLink>
         ))}
       </nav>
-
-      <div className="topnav-status">
-        <span className="topnav-status-label">DATA</span>
-        <span className="topnav-status-value">Fully local · SQLite</span>
-      </div>
     </header>
   );
 }
