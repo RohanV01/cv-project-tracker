@@ -18,6 +18,7 @@ export interface Project {
   dispatch_date: string | null;
   delay_reason: string | null;
   updated_at: string;
+  status: "on_time" | "at_risk" | "no_data";
 }
 
 export interface ProjectHistoryEntry {

@@ -6,7 +6,7 @@ from pathlib import Path
 
 from pptx import Presentation
 
-from models import Project
+from models import Project, compute_status
 from services.slide_clone import duplicate_slide, remove_slide, set_bullet_paragraphs
 from services.table_rows import set_data_row_count
 
@@ -27,10 +27,9 @@ def _fmt_date(value: dt.date | None) -> str:
     return value.strftime("%d-%m-%Y") if value else ""
 
 
-def _fmt_on_time(value: bool | None) -> str:
-    if value is None:
-        return ""
-    return "Yes" if value else "NO"
+def _fmt_status(project: Project) -> str:
+    status = compute_status(project.end_date, project.po_dispatch_date, project.dispatch_date)
+    return {"on_time": "Yes", "at_risk": "NO", "no_data": ""}[status]
 
 
 def _set_cell_text(table, row: int, col: int, text: str) -> None:
@@ -48,7 +47,7 @@ def _fill_master_table(table, projects: list[Project]) -> None:
         _set_cell_text(table, row, 4, project.quantity or "")
         _set_cell_text(table, row, 5, _fmt_date(project.start_date))
         _set_cell_text(table, row, 6, _fmt_date(project.end_date))
-        _set_cell_text(table, row, 7, _fmt_on_time(project.on_time))
+        _set_cell_text(table, row, 7, _fmt_status(project))
         _set_cell_text(table, row, 8, project.remarks or "")
 
 

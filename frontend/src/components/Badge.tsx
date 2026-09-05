@@ -1,8 +1,8 @@
-export function StatusBadge({ onTime }: { onTime: boolean | null }) {
-  if (onTime === null) {
+export function StatusBadge({ status }: { status: "on_time" | "at_risk" | "no_data" }) {
+  if (status === "no_data") {
     return <span className="badge badge-neutral">No data</span>;
   }
-  return onTime ? (
+  return status === "on_time" ? (
     <span className="badge badge-success">On track</span>
   ) : (
     <span className="badge badge-warning">At risk</span>

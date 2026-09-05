@@ -15,9 +15,9 @@ export function SummaryPage() {
 
   const stats = useMemo(() => {
     const total = projects.length;
-    const onTrack = projects.filter((p) => p.on_time === true).length;
-    const atRisk = projects.filter((p) => p.on_time === false).length;
-    const noData = projects.filter((p) => p.on_time === null).length;
+    const onTrack = projects.filter((p) => p.status === "on_time").length;
+    const atRisk = projects.filter((p) => p.status === "at_risk").length;
+    const noData = projects.filter((p) => p.status === "no_data").length;
     return { total, onTrack, atRisk, noData };
   }, [projects]);
 

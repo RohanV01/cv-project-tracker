@@ -82,7 +82,7 @@ export function ProjectDetailPage() {
           </button>
           <div className="project-title-row">
             <h1 className="mono">{project.project_code}</h1>
-            <StatusBadge onTime={project.on_time} />
+            <StatusBadge status={project.status} />
             <TrackBadges hasRd={projectHasRd(project)} hasProduction={projectHasProduction(project)} />
           </div>
         </div>

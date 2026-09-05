@@ -49,7 +49,7 @@ export function ProjectTable({ projects }: { projects: Project[] }) {
                 </td>
                 <td>{p.team_lead ?? "—"}</td>
                 <td>
-                  <StatusBadge onTime={p.on_time} />
+                  <StatusBadge status={p.status} />
                 </td>
                 <td className="muted">{new Date(p.updated_at).toLocaleDateString()}</td>
               </tr>

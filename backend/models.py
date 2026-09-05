@@ -1,10 +1,39 @@
 from __future__ import annotations
 
 import datetime as dt
+from typing import Literal
 
-from pydantic import BaseModel
+from pydantic import BaseModel, computed_field
 from sqlalchemy import JSON, Boolean, Date, DateTime, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+
+ProjectStatus = Literal["on_time", "at_risk", "no_data"]
+
+
+def compute_status(
+    end_date: dt.date | None,
+    po_dispatch_date: dt.date | None,
+    dispatch_date: dt.date | None,
+    *,
+    today: dt.date | None = None,
+) -> ProjectStatus:
+    """Derive on-time status from dates rather than trusting a stored flag,
+    which otherwise goes stale the moment the imported snapshot ages past its
+    deadline. Production (dispatch vs. its target) takes precedence over R&D
+    (end date) since a project with both sets of fields populated is further
+    along its Production leg.
+    """
+    today = today or dt.date.today()
+
+    if dispatch_date is not None:
+        if po_dispatch_date is not None and dispatch_date > po_dispatch_date:
+            return "at_risk"
+        return "on_time"
+    if po_dispatch_date is not None:
+        return "at_risk" if today > po_dispatch_date else "on_time"
+    if end_date is not None:
+        return "at_risk" if today > end_date else "on_time"
+    return "no_data"
 
 
 class Base(DeclarativeBase):
@@ -99,6 +128,11 @@ class ProjectRead(BaseModel):
     updated_at: dt.datetime
 
     model_config = {"from_attributes": True}
+
+    @computed_field  # type: ignore[prop-decorator]
+    @property
+    def status(self) -> ProjectStatus:
+        return compute_status(self.end_date, self.po_dispatch_date, self.dispatch_date)
 
 
 class ProjectUpdate(BaseModel):
