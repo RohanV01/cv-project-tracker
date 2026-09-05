@@ -99,16 +99,24 @@ export function ProjectDetailPage() {
           <div className="fact-grid">
             <Fact label="Target molecule" value={project.target_molecule} />
             <Fact label="Team lead" value={project.team_lead} />
-            <Fact label="Quantity" value={project.quantity} />
-            <Fact label="Start date" value={project.start_date} />
-            <Fact label="End date" value={project.end_date} />
-            <Fact label="CAS no" value={project.cas_no} />
-            <Fact label="Old / New" value={project.old_or_new} />
-            <Fact label="Production qty (kg)" value={project.production_quantity_kg} />
-            <Fact label="PO date" value={project.po_date} />
-            <Fact label="PO dispatch date" value={project.po_dispatch_date} />
-            <Fact label="Dispatch date" value={project.dispatch_date} />
-            <Fact label="Delay reason" value={project.delay_reason} />
+            {projectHasRd(project) && (
+              <>
+                <Fact label="Quantity" value={project.quantity} />
+                <Fact label="Start date" value={project.start_date} />
+                <Fact label="End date" value={project.end_date} />
+              </>
+            )}
+            {projectHasProduction(project) && (
+              <>
+                <Fact label="CAS no" value={project.cas_no} />
+                <Fact label="Old / New" value={project.old_or_new} />
+                <Fact label="Production qty (kg)" value={project.production_quantity_kg} />
+                <Fact label="PO date" value={project.po_date} />
+                <Fact label="PO dispatch date" value={project.po_dispatch_date} />
+                <Fact label="Dispatch date" value={project.dispatch_date} />
+                <Fact label="Delay reason" value={project.delay_reason} />
+              </>
+            )}
           </div>
         </div>
 
