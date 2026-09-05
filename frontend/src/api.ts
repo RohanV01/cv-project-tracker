@@ -63,8 +63,15 @@ export async function getProjectHistory(projectCode: string): Promise<ProjectHis
 export interface ProjectCreate {
   project_code: string;
   target_molecule?: string | null;
+  team_lead?: string | null;
+  quantity?: string | null;
   start_date?: string | null;
   end_date?: string | null;
+  old_or_new?: string | null;
+  cas_no?: string | null;
+  production_quantity_kg?: string | null;
+  po_date?: string | null;
+  po_dispatch_date?: string | null;
 }
 
 export async function createProject(payload: ProjectCreate): Promise<Project> {

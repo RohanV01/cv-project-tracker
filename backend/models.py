@@ -155,8 +155,17 @@ class ProjectUpdate(BaseModel):
 class ProjectCreate(BaseModel):
     project_code: str
     target_molecule: str | None = None
+    team_lead: str | None = None
+    # R&D fields
+    quantity: str | None = None
     start_date: dt.date | None = None
     end_date: dt.date | None = None
+    # Production fields
+    old_or_new: str | None = None
+    cas_no: str | None = None
+    production_quantity_kg: str | None = None
+    po_date: dt.date | None = None
+    po_dispatch_date: dt.date | None = None
 
 
 class ProjectHistoryRead(BaseModel):
