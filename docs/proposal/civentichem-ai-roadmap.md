@@ -8,7 +8,8 @@ Engagement type: Phased, gated delivery
 Deployment model: 100% on-premise
 Estimated duration: 9-14 weeks, phase-gated
 
-Live formatted version: https://claude.ai/code/artifact/82afdc50-1398-465e-bf9c-00ab37f32735
+Live site (Vercel, themed to match the tracker app): https://civentichem-ai-roadmap.vercel.app
+Live formatted version (Claude artifact): https://claude.ai/code/artifact/82afdc50-1398-465e-bf9c-00ab37f32735
 
 A fully on-prem path from process tracker to institutional memory: four gated phases (NDA, local deployment, archive digitization, then a local AI layer that can answer "how did we solve this before") with nothing ever leaving CiVentiChem's own machines.
 
