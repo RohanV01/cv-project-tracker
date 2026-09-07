@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CiVentiChem Roadmap Brief</title>
+<title>Phase Wise AI Deployment Roadmap for CiVentiChem</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600;700&display=swap">
 <style>
@@ -72,6 +72,30 @@
   .outcome{ color:var(--foreground); font-weight:500; }
 
   .footnote{ margin-top:1.75rem; font-size:.82rem; color:var(--muted-foreground); }
+
+  .section-eyebrow{ font-size:.68rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--muted-foreground); margin:2.5rem 0 1rem; }
+  .gallery{ display:grid; grid-template-columns:repeat(3,1fr); gap:.85rem; }
+  .gallery-item{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-sm); overflow:hidden; }
+  .gallery-item img{ display:block; width:100%; height:auto; border-bottom:1px solid var(--border); }
+  .gallery-cap{ padding:.65rem .8rem; font-size:.78rem; color:var(--muted-foreground); }
+  @media (max-width:700px){ .gallery{ grid-template-columns:1fr; } }
+
+  .video-link{
+    display:flex; align-items:center; gap:.9rem; text-decoration:none; color:var(--foreground);
+    background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+    box-shadow:var(--shadow-sm); padding:.85rem 1rem; margin-top:1rem;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .video-link:hover{ border-color:var(--primary); transform:translateY(-1px); }
+  .video-play{
+    flex-shrink:0; width:2.3rem; height:2.3rem; border-radius:50%;
+    background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center;
+  }
+  .video-play svg{ width:14px; height:14px; }
+  .video-text{ display:flex; flex-direction:column; gap:.15rem; flex:1; }
+  .video-title{ font-weight:700; font-size:.92rem; }
+  .video-sub{ font-size:.8rem; color:var(--muted-foreground); }
+  .video-arrow{ color:var(--primary); font-size:1.1rem; flex-shrink:0; }
 </style>
 </head>
 <body>
@@ -83,8 +107,8 @@
     </div>
 
     <span class="badge">Confidential, for discussion</span>
-    <h1>Four phases, gated, fully on-prem</h1>
-    <p class="dek">A quick view of what each phase delivers and what it unlocks next. Full scope, screenshots, and sizing detail available once the project is approved in principle.</p>
+    <h1>Phase Wise AI Deployment Roadmap for CiVentiChem</h1>
+    <p class="dek">A quick view of what each phase delivers and what it unlocks next. Full scope and sizing detail available once the project is approved in principle.</p>
 
     <div class="table-wrap">
       <table>
@@ -106,7 +130,7 @@
             <td class="outcome">Signed, legally binding agreement to start work, with the local-only requirement in writing.</td>
           </tr>
           <tr>
-            <td class="phase-cell"><span class="phase-num">01</span><span class="phase-name">Infra Readiness &amp; Local Deployment</span></td>
+            <td class="phase-cell"><span class="phase-num">01</span><span class="phase-name">Deploy Project Tracker + Report Gen Tool</span></td>
             <td>
               <ul>
                 <li>Live dashboard: on-time / at-risk status computed automatically from dates</li>
@@ -143,6 +167,31 @@
         </tbody>
       </table>
     </div>
+
+    <div class="section-eyebrow">Already built: Phase 1 in action</div>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="assets/dashboard.jpg" alt="Tracker dashboard showing project counts, on-time status, and track split">
+        <div class="gallery-cap">Live dashboard: status, delay severity, and R&amp;D/Production split.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/rd-list.jpg" alt="R&D project list with track, team lead, status and last-updated columns">
+        <div class="gallery-cap">Project list, filterable by code, lead, or remarks.</div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/project-detail.jpg" alt="Project detail page showing key facts, remarks, and a full edit history timeline">
+        <div class="gallery-cap">Project detail with a full, timestamped audit trail.</div>
+      </div>
+    </div>
+
+    <a class="video-link" href="https://www.loom.com/share/38b9f9ec80e9459db69d7ce160e6f28f" target="_blank" rel="noopener noreferrer">
+      <span class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7Z"/></svg></span>
+      <span class="video-text">
+        <span class="video-title">Watch: Phase 1 implementation walkthrough</span>
+        <span class="video-sub">Loom recording: local deployment and first-run training, end to end</span>
+      </span>
+      <span class="video-arrow" aria-hidden="true">&#8599;</span>
+    </a>
 
     <p class="footnote">Standing constraint across all four phases: everything runs on hardware CiVentiChem owns and controls. No cloud database, no third-party LLM API, no telemetry.</p>
   </div>
