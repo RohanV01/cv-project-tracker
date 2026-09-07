@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CiVentiChem Roadmap Brief</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --page-bg:#eef1f8;
+    --card:#ffffff;
+    --foreground:#0b0f19;
+    --muted:#f1f3f9;
+    --muted-foreground:#64748b;
+    --primary:#3b5bfd;
+    --accent:#e05299;
+    --border:#e3e6f0;
+    --radius:0.75rem;
+    --font-body:"Inter", system-ui, sans-serif;
+    --font-heading:"Manrope", system-ui, sans-serif;
+    --shadow-sm:0 1px 2px rgba(15,23,42,.06);
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background:var(--page-bg); color:var(--foreground);
+    font-family:var(--font-body); font-size:15px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2{ font-family:var(--font-heading); font-weight:800; letter-spacing:-0.02em; margin:0; }
+  .shell{ max-width:920px; margin:0 auto; padding:2.5rem 1.5rem 4rem; }
+
+  .brand{ display:flex; align-items:center; gap:.75rem; margin-bottom:2.25rem; }
+  .brand img{ height:1.75rem; width:auto; display:block; }
+  .brand-divider{ width:1px; height:1.4rem; background:var(--border); }
+  .brand-name{ font-family:var(--font-heading); font-weight:800; font-size:.92rem; }
+
+  .badge{
+    display:inline-flex; align-items:center; border-radius:999px;
+    padding:.28rem .7rem; font-size:.72rem; font-weight:700;
+    background:var(--muted); color:var(--muted-foreground); margin-bottom:1rem;
+  }
+
+  h1{ font-size:clamp(1.6rem,3.4vw,2.15rem); line-height:1.15; max-width:22ch; margin-bottom:.85rem; }
+  .dek{ color:var(--muted-foreground); font-size:1rem; max-width:64ch; margin-bottom:2rem; }
+
+  .table-wrap{
+    overflow-x:auto; background:var(--card); border:1px solid var(--border);
+    border-radius:var(--radius); box-shadow:var(--shadow-sm);
+  }
+  table{ width:100%; border-collapse:collapse; font-size:.88rem; }
+  th{
+    text-align:left; font-size:.68rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--muted-foreground); padding:.85rem 1rem; border-bottom:1px solid var(--border);
+    background:var(--muted);
+  }
+  th:first-child{ border-top-left-radius:var(--radius); }
+  th:last-child{ border-top-right-radius:var(--radius); }
+  td{ padding:.9rem 1rem; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:last-child td{ border-bottom:none; }
+  .phase-cell{ white-space:nowrap; }
+  .phase-num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:1.6rem; height:1.6rem; border-radius:50%; border:1.5px solid var(--primary);
+    color:var(--primary); font-family:var(--font-heading); font-weight:800; font-size:.72rem;
+    margin-right:.5rem;
+  }
+  .phase-name{ font-weight:700; }
+  td ul{ margin:0; padding-left:1.05rem; color:var(--muted-foreground); }
+  td ul li{ margin-bottom:.3rem; }
+  td ul li:last-child{ margin-bottom:0; }
+  .outcome{ color:var(--foreground); font-weight:500; }
+
+  .footnote{ margin-top:1.75rem; font-size:.82rem; color:var(--muted-foreground); }
+</style>
+</head>
+<body>
+  <div class="shell">
+    <div class="brand">
+      <img src="civentichem-logo.png" alt="CiVentiChem">
+      <div class="brand-divider"></div>
+      <span class="brand-name">AI Roadmap, Brief</span>
+    </div>
+
+    <span class="badge">Confidential, for discussion</span>
+    <h1>Four phases, gated, fully on-prem</h1>
+    <p class="dek">A quick view of what each phase delivers and what it unlocks next. Full scope, screenshots, and sizing detail available once the project is approved in principle.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Phase</th>
+            <th>Features</th>
+            <th>Outcome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="phase-cell"><span class="phase-num">00</span><span class="phase-name">Confidentiality &amp; Engagement Setup</span></td>
+            <td>
+              <ul>
+                <li>Mutual NDA</li>
+                <li>Written zero-data-egress addendum</li>
+                <li>One-page scope &amp; success-criteria note</li>
+              </ul>
+            </td>
+            <td class="outcome">Signed, legally binding agreement to start work, with the local-only requirement in writing.</td>
+          </tr>
+          <tr>
+            <td class="phase-cell"><span class="phase-num">01</span><span class="phase-name">Infra Readiness &amp; Local Deployment</span></td>
+            <td>
+              <ul>
+                <li>Hardware &amp; IT environment audit</li>
+                <li>Tracker deployed as a local service, with backups</li>
+                <li>Basic training for project leads &amp; staff</li>
+              </ul>
+            </td>
+            <td class="outcome">Tracker running independently on CiVentiChem's own hardware, operated by their own team.</td>
+          </tr>
+          <tr>
+            <td class="phase-cell"><span class="phase-num">02</span><span class="phase-name">Archive Audit, Prep &amp; Capacity Planning</span></td>
+            <td>
+              <ul>
+                <li>Cataloging of all archival data sources</li>
+                <li>Cleaned, structured, SME-validated pilot dataset</li>
+                <li>Concrete storage &amp; AI hardware sizing</li>
+              </ul>
+            </td>
+            <td class="outcome">A validated, structured dataset plus a clear hardware/storage number to plan and budget against.</td>
+          </tr>
+          <tr>
+            <td class="phase-cell"><span class="phase-num">03</span><span class="phase-name">Local AI Knowledge Layer</span></td>
+            <td>
+              <ul>
+                <li>Local embeddings, vector store &amp; LLM (no cloud calls)</li>
+                <li>Natural-language search across historical projects</li>
+                <li>Citation-only answers, validated against SME test set</li>
+              </ul>
+            </td>
+            <td class="outcome">A working, fully offline AI assistant that answers "how did we solve this before" from CiVentiChem's own history.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="footnote">Standing constraint across all four phases: everything runs on hardware CiVentiChem owns and controls. No cloud database, no third-party LLM API, no telemetry.</p>
+  </div>
+</body>
+</html>
