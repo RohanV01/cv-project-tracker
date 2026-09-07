@@ -6,7 +6,6 @@ Prepared by: Rohan Vyas
 Status: Draft, for internal review
 Engagement type: Phased, gated delivery
 Deployment model: 100% on-premise
-Estimated duration: 9-14 weeks, phase-gated
 
 Live site (Vercel, themed to match the tracker app): https://civentichem-ai-roadmap.vercel.app
 Live formatted version (Claude artifact): https://claude.ai/code/artifact/82afdc50-1398-465e-bf9c-00ab37f32735
@@ -47,6 +46,12 @@ The tracker referenced throughout this roadmap is a working application today, n
 
 Nothing gets installed, copied, or even looked at until the paperwork makes the local-only promise contractual, not just verbal.
 
+**Problem:** Sensitive process and formulation data would be exposed the moment work starts, with no shared, written definition of what "done" means or where the data is allowed to go.
+
+**Solution:** Sign a mutual NDA and a written zero-egress data-handling addendum first, plus a one-page scope note both sides agree to, before any device or file is touched.
+
+**Watch for:** Legal turnaround time on either side, and getting the paperwork in front of someone with actual signing authority.
+
 **Workstreams**
 
 - **Mutual NDA** - covers process data, formulations, client/customer lists, and any archival material reviewed. Countersigned by both parties before any device or file is touched.
@@ -68,6 +73,12 @@ Nothing gets installed, copied, or even looked at until the paperwork makes the 
 *1-2 weeks, on-site + remote*
 
 Before installing anything, understand what CiVentiChem actually has to run it on, then put the tracker on it, and make sure their own people can drive it without you in the room.
+
+**Problem:** Nobody has confirmed what machine, network, or IT policy the tracker would actually run under, so a generic install risks the wrong hardware, a blocked port, or a team left unable to use it alone.
+
+**Solution:** Audit the hardware and network first, deploy the tracker as a local, auto-starting service sized to what's actually there, configure real backups, then train two or more staff to run it unassisted.
+
+**Watch for:** Delayed IT/admin access approval, and machines too old or underpowered to be worth deploying to, which would mean a hardware purchase before this phase can close.
 
 **Workstreams**
 
@@ -105,6 +116,12 @@ https://www.loom.com/share/38b9f9ec80e9459db69d7ce160e6f28f
 *3-5 weeks, depends on archive volume*
 
 Find out what CiVentiChem's history actually consists of, get it into a shape a machine can use, and size, in concrete numbers, the storage and compute that Phase 3 will need.
+
+**Problem:** Years of history live scattered across old Excel sheets, scanned notebooks, and PDFs, in inconsistent formats. Without knowing the real volume, any storage or AI hardware number is a guess.
+
+**Solution:** Catalog every source, clean and structure a validated pilot batch with the SMEs, then size storage and compute from the measured volume, not an assumed one.
+
+**Watch for:** Missing or damaged historical records, poor OCR quality on old handwriting, and SME time needed to validate the pilot before the full pass runs.
 
 **Workstreams**
 
@@ -151,6 +168,12 @@ Find out what CiVentiChem's history actually consists of, get it into a shape a 
 *4-6 weeks, build + iterate*
 
 Turn the structured archive into something the team can ask questions of, in plain language, entirely offline, with every answer traceable back to a real document.
+
+**Problem:** A general-purpose chatbot can confidently make up an answer about a project that never happened. On a chemistry archive, a wrong "how we solved this before" is worse than no answer.
+
+**Solution:** Build a citation-only local assistant (local embeddings, local vector store, local LLM) that answers strictly from the archive and says "not found" instead of guessing, validated against a blind SME-reviewed test set.
+
+**Watch for:** Local compute limits capping model quality (this is why the Phase 2 hardware decision matters), and multiple validation rounds likely needed before SMEs trust the answers.
 
 **Workstreams**
 

@@ -172,6 +172,19 @@
 
   .block-label{ font-size:.68rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--muted-foreground); margin:1.4rem 0 .75rem; }
 
+  .psb-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:.85rem; margin-bottom:1.5rem; }
+  .psb-card{ border-radius:var(--radius); padding:.9rem 1rem; border:1px solid var(--border); }
+  .psb-card .psb-label{ display:flex; align-items:center; gap:.4rem; font-size:.7rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; margin-bottom:.5rem; }
+  .psb-card .psb-label svg{ width:14px; height:14px; }
+  .psb-card p{ font-size:.85rem; color:var(--muted-foreground); line-height:1.5; }
+  .psb-problem{ background:color-mix(in srgb, var(--destructive) 6%, var(--card)); border-color:color-mix(in srgb, var(--destructive) 25%, var(--border)); }
+  .psb-problem .psb-label{ color:var(--destructive); }
+  .psb-solution{ background:color-mix(in srgb, var(--primary) 6%, var(--card)); border-color:color-mix(in srgb, var(--primary) 25%, var(--border)); }
+  .psb-solution .psb-label{ color:var(--primary); }
+  .psb-blockers{ background:var(--muted); }
+  .psb-blockers .psb-label{ color:var(--muted-foreground); }
+  @media (max-width:760px){ .psb-grid{ grid-template-columns:1fr; } }
+
   .workstreams{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:.85rem; }
   .ws-card h3{ font-family:var(--font-body); font-weight:700; font-size:.92rem; margin-bottom:.45rem; }
   .ws-card ul{ margin:0; padding-left:1.05rem; font-size:.86rem; color:var(--muted-foreground); display:flex; flex-direction:column; gap:.35rem; }
@@ -271,7 +284,6 @@
       <div class="meta-tile"><div class="k">Prepared for</div><div class="v">CiVentiChem</div></div>
       <div class="meta-tile"><div class="k">Prepared by</div><div class="v">Rohan Vyas</div></div>
       <div class="meta-tile"><div class="k">Deployment model</div><div class="v">100% on-prem</div></div>
-      <div class="meta-tile"><div class="k">Est. duration</div><div class="v">9-14 weeks</div></div>
     </div>
   </section>
 
@@ -319,6 +331,21 @@
       <p class="objective">Nothing gets installed, copied, or even looked at until the paperwork makes the local-only promise contractual, not just verbal.</p>
     </div>
 
+    <div class="psb-grid">
+      <div class="psb-card psb-problem">
+        <div class="psb-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16" r=".5" fill="currentColor"/></svg>Problem</div>
+        <p>Sensitive process and formulation data would be exposed the moment work starts, with no shared, written definition of what "done" means or where the data is allowed to go.</p>
+      </div>
+      <div class="psb-card psb-solution">
+        <div class="psb-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Solution</div>
+        <p>Sign a mutual NDA and a written zero-egress data-handling addendum first, plus a one-page scope note both sides agree to, before any device or file is touched.</p>
+      </div>
+      <div class="psb-card psb-blockers">
+        <div class="psb-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4"/><circle cx="12" cy="16.5" r=".5" fill="currentColor"/><path d="M10.3 3.9 2.6 17.5A1.8 1.8 0 0 0 4.2 20h15.6a1.8 1.8 0 0 0 1.6-2.5L13.7 3.9a1.8 1.8 0 0 0-3.4 0Z"/></svg>Watch for</div>
+        <p>Legal turnaround time on either side, and getting the paperwork in front of someone with actual signing authority.</p>
+      </div>
+    </div>
+
     <div class="workstreams">
       <div class="card ws-card">
         <h3>Mutual NDA</h3>
@@ -363,6 +390,21 @@
       <div class="tag-row"><span class="badge badge-track">Phase 1</span><span class="badge badge-neutral">1-2 weeks &middot; on-site + remote</span></div>
       <h2>Infrastructure readiness &amp; local deployment</h2>
       <p class="objective">Before installing anything, understand what CiVentiChem actually has to run it on, then put the tracker on it, and make sure their own people can drive it without you in the room.</p>
+    </div>
+
+    <div class="psb-grid">
+      <div class="psb-card psb-problem">
+        <div class="psb-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16" r=".5" fill="currentColor"/></svg>Problem</div>
+        <p>Nobody has confirmed what machine, network, or IT policy the tracker would actually run under, so a generic install risks the wrong hardware, a blocked port, or a team left unable to use it alone.</p>
+      </div>
+      <div class="psb-card psb-solution">
+        <div class="psb-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Solution</div>
+        <p>Audit the hardware and network first, deploy the tracker as a local, auto-starting service sized to what's actually there, configure real backups, then train two or more staff to run it unassisted.</p>
+      </div>
+      <div class="psb-card psb-blockers">
+        <div class="psb-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4"/><circle cx="12" cy="16.5" r=".5" fill="currentColor"/><path d="M10.3 3.9 2.6 17.5A1.8 1.8 0 0 0 4.2 20h15.6a1.8 1.8 0 0 0 1.6-2.5L13.7 3.9a1.8 1.8 0 0 0-3.4 0Z"/></svg>Watch for</div>
+        <p>Delayed IT/admin access approval, and machines too old or underpowered to be worth deploying to, which would mean a hardware purchase before this phase can close.</p>
+      </div>
     </div>
 
     <div class="block-label">Workstreams</div>
@@ -423,6 +465,21 @@
       <div class="tag-row"><span class="badge badge-track">Phase 2</span><span class="badge badge-neutral">3-5 weeks &middot; depends on archive volume</span></div>
       <h2>Archive audit, data preparation &amp; capacity planning</h2>
       <p class="objective">Find out what CiVentiChem's history actually consists of, get it into a shape a machine can use, and size, in concrete numbers, the storage and compute that Phase 3 will need.</p>
+    </div>
+
+    <div class="psb-grid">
+      <div class="psb-card psb-problem">
+        <div class="psb-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16" r=".5" fill="currentColor"/></svg>Problem</div>
+        <p>Years of history live scattered across old Excel sheets, scanned notebooks, and PDFs, in inconsistent formats. Without knowing the real volume, any storage or AI hardware number is a guess.</p>
+      </div>
+      <div class="psb-card psb-solution">
+        <div class="psb-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Solution</div>
+        <p>Catalog every source, clean and structure a validated pilot batch with the SMEs, then size storage and compute from the measured volume, not an assumed one.</p>
+      </div>
+      <div class="psb-card psb-blockers">
+        <div class="psb-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4"/><circle cx="12" cy="16.5" r=".5" fill="currentColor"/><path d="M10.3 3.9 2.6 17.5A1.8 1.8 0 0 0 4.2 20h15.6a1.8 1.8 0 0 0 1.6-2.5L13.7 3.9a1.8 1.8 0 0 0-3.4 0Z"/></svg>Watch for</div>
+        <p>Missing or damaged historical records, poor OCR quality on old handwriting, and SME time needed to validate the pilot before the full pass runs.</p>
+      </div>
     </div>
 
     <div class="block-label">Workstreams</div>
@@ -520,6 +577,21 @@
       <div class="tag-row"><span class="badge badge-track">Phase 3</span><span class="badge badge-neutral">4-6 weeks &middot; build + iterate</span></div>
       <h2>Local AI knowledge &amp; insight layer</h2>
       <p class="objective">Turn the structured archive into something the team can ask questions of, in plain language, entirely offline, with every answer traceable back to a real document.</p>
+    </div>
+
+    <div class="psb-grid">
+      <div class="psb-card psb-problem">
+        <div class="psb-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16" r=".5" fill="currentColor"/></svg>Problem</div>
+        <p>A general-purpose chatbot can confidently make up an answer about a project that never happened. On a chemistry archive, a wrong "how we solved this before" is worse than no answer.</p>
+      </div>
+      <div class="psb-card psb-solution">
+        <div class="psb-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Solution</div>
+        <p>Build a citation-only local assistant (local embeddings, local vector store, local LLM) that answers strictly from the archive and says "not found" instead of guessing, validated against a blind SME-reviewed test set.</p>
+      </div>
+      <div class="psb-card psb-blockers">
+        <div class="psb-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4"/><circle cx="12" cy="16.5" r=".5" fill="currentColor"/><path d="M10.3 3.9 2.6 17.5A1.8 1.8 0 0 0 4.2 20h15.6a1.8 1.8 0 0 0 1.6-2.5L13.7 3.9a1.8 1.8 0 0 0-3.4 0Z"/></svg>Watch for</div>
+        <p>Local compute limits capping model quality (this is why the Phase 2 hardware decision matters), and multiple validation rounds likely needed before SMEs trust the answers.</p>
+      </div>
     </div>
 
     <div class="block-label">Workstreams</div>
