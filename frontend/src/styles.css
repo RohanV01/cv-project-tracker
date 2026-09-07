@@ -213,6 +213,17 @@
 .bar-list-fill { display: block; height: 100%; border-radius: 999px; transition: width 0.3s; }
 .bar-list-value { text-align: right; font-weight: 700; font-size: 0.85rem; }
 
+/* Pie chart -------------------------------------------------------- */
+
+.pie-chart-row { display: flex; align-items: center; gap: 1.25rem; margin-top: 0.9rem; flex-wrap: wrap; }
+.pie-chart-svg { flex-shrink: 0; }
+.pie-chart-svg text { fill: var(--foreground); font-size: 0.3rem; font-weight: 800; }
+.pie-chart-legend { display: flex; flex-direction: column; gap: 0.4rem; list-style: none; margin: 0; padding: 0; }
+.pie-chart-legend li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; }
+.pie-chart-swatch { width: 0.6rem; height: 0.6rem; border-radius: 999px; flex-shrink: 0; }
+.pie-chart-legend-label { font-weight: 600; }
+.pie-chart-legend-value { color: var(--muted-foreground); margin-left: auto; padding-left: 0.75rem; }
+
 /* Cards ---------------------------------------------------------------- */
 
 .card {
