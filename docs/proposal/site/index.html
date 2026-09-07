@@ -68,14 +68,10 @@
     max-width:1040px; margin:0 auto; padding:.7rem 1.5rem;
     display:flex; align-items:center; gap:1.25rem;
   }
-  .brand{ display:flex; align-items:center; gap:.65rem; flex-shrink:0; }
-  .brand-mark{
-    width:1.9rem; height:1.9rem; border-radius:.55rem; flex-shrink:0;
-    background:linear-gradient(135deg, var(--primary), var(--accent));
-  }
-  .brand-text{ line-height:1.15; }
-  .brand-eyebrow{ font-size:.62rem; font-weight:700; letter-spacing:.08em; color:var(--muted-foreground); }
-  .brand-name{ font-family:var(--font-heading); font-weight:800; font-size:.92rem; white-space:nowrap; }
+  .brand{ display:flex; align-items:center; gap:.75rem; flex-shrink:0; }
+  .brand-logo{ height:1.75rem; width:auto; display:block; }
+  .brand-divider{ width:1px; height:1.4rem; background:var(--border); flex-shrink:0; }
+  .brand-name{ font-family:var(--font-heading); font-weight:800; font-size:.92rem; white-space:nowrap; color:var(--foreground); }
 
   .quicknav{
     display:flex; gap:.15rem; background:var(--muted); border-radius:.65rem; padding:.2rem;
@@ -253,11 +249,9 @@
 <div class="topbar">
   <div class="topbar-inner">
     <div class="brand">
-      <span class="brand-mark"></span>
-      <span class="brand-text">
-        <span class="brand-eyebrow">CIVENTICHEM</span><br>
-        <span class="brand-name">AI Roadmap</span>
-      </span>
+      <img src="assets/civentichem-logo.png" alt="CiVentiChem" class="brand-logo">
+      <div class="brand-divider"></div>
+      <span class="brand-name">AI Roadmap</span>
     </div>
     <nav class="quicknav" id="quicknav">
       <a href="#overview" data-nav>Overview</a>
