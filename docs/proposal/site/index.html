@@ -157,6 +157,22 @@
   .video-chip .vp{ width:1.6rem; height:1.6rem; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
   .video-chip .vp svg{ width:9px; height:9px; }
 
+  /* engagement models slide */
+  .engage-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.3rem; }
+  .engage-card{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-sm); padding:1.2rem 1.3rem; }
+  .engage-card-alt{ border-color:color-mix(in srgb, var(--primary) 35%, var(--border)); box-shadow:var(--shadow-md); }
+  .engage-head{ margin-bottom:1rem; }
+  .engage-tag{ display:inline-flex; font-size:.68rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; background:var(--muted); color:var(--muted-foreground); border-radius:999px; padding:.25rem .65rem; margin-bottom:.6rem; }
+  .engage-tag-alt{ background:color-mix(in srgb, var(--primary) 14%, transparent); color:var(--primary); }
+  .engage-head h3{ font-size:1.15rem; margin-bottom:.25rem; }
+  .engage-head p{ font-size:.85rem; color:var(--muted-foreground); margin:0; }
+  .engage-list{ list-style:none; margin:0 0 1rem; padding:0; display:flex; flex-direction:column; gap:.6rem; }
+  .engage-list li{ display:flex; gap:.55rem; align-items:flex-start; font-size:.86rem; color:var(--foreground); }
+  .engage-list svg{ width:15px; height:15px; color:var(--success); flex-shrink:0; margin-top:.2rem; }
+  .engage-fit{ font-size:.8rem; color:var(--muted-foreground); border-top:1px solid var(--border); padding-top:.75rem; }
+  .engage-note{ font-size:.85rem; color:var(--muted-foreground); text-align:center; }
+  @media (max-width:760px){ .engage-grid{ grid-template-columns:1fr; } }
+
   /* closing slide */
   .closing-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.4rem; }
   .closing-card{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-sm); padding:1rem 1.15rem; }
@@ -183,7 +199,7 @@
     <div class="div"></div>
     <span>AI Roadmap</span>
   </div>
-  <div class="chrome-count"><span id="slideCounter">1 / 5</span></div>
+  <div class="chrome-count"><span id="slideCounter">1 / 6</span></div>
 
   <button class="arrow-btn" id="prevBtn" aria-label="Previous slide">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -313,7 +329,48 @@
       </div>
     </section>
 
-    <!-- SLIDE 4: CLOSING -->
+    <!-- SLIDE 4: ENGAGEMENT MODELS -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="phase-eyebrow"><span class="phase-tag">Execution options</span></div>
+        <h2>Two Ways to Engage</h2>
+        <p class="phase-dek">Either way, everything stays 100% on-prem at CiVentiChem. What changes is who does the data prep and who sources the hardware.</p>
+
+        <div class="engage-grid">
+          <div class="engage-card">
+            <div class="engage-head">
+              <span class="engage-tag">Model A</span>
+              <h3>Client-Led</h3>
+              <p>CiVentiChem drives infrastructure &amp; data prep</p>
+            </div>
+            <ul class="engage-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>CiVentiChem sources and procures all hardware (server, GPU, storage)</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>CiVentiChem's own team preps and structures the historical archive, guided by our templates</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>We build, deploy, and configure the software layer on top</li>
+            </ul>
+            <div class="engage-fit">Best for: teams with in-house IT bandwidth to run hardware procurement and data prep internally.</div>
+          </div>
+
+          <div class="engage-card engage-card-alt">
+            <div class="engage-head">
+              <span class="engage-tag engage-tag-alt">Model B</span>
+              <h3>Managed, Full-Service</h3>
+              <p>We drive infrastructure &amp; data prep</p>
+            </div>
+            <ul class="engage-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>We deploy a dedicated data team (e.g. in Hyderabad) to prep and structure the archive</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>We specify the exact hardware required; CiVentiChem procures against our spec</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>We build, deploy, and configure the software layer end-to-end</li>
+            </ul>
+            <div class="engage-fit">Best for: teams that want a single point of accountability and minimal internal lift.</div>
+          </div>
+        </div>
+
+        <div class="engage-note">Both models are 100% on-prem. The data and hardware always live at CiVentiChem, only who performs the prep work changes.</div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: CLOSING -->
     <section class="slide">
       <div class="slide-inner">
         <div class="phase-eyebrow"><span class="phase-tag">Beyond this roadmap</span></div>
