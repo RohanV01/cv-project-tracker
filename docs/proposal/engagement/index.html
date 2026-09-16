@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CiVentiChem Engagement Proposal</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --page-bg:#eef1f8;
+    --card:#ffffff;
+    --foreground:#0b0f19;
+    --muted:#f1f3f9;
+    --muted-foreground:#64748b;
+    --primary:#3b5bfd;
+    --accent:#e05299;
+    --success:#16a34a;
+    --success-bg:#e7f6ec;
+    --border:#e3e6f0;
+    --radius:0.9rem;
+    --font-body:"Inter", system-ui, sans-serif;
+    --font-heading:"Manrope", system-ui, sans-serif;
+    --shadow-sm:0 1px 2px rgba(15,23,42,.06);
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background:var(--page-bg); color:var(--foreground);
+    font-family:var(--font-body); font-size:15px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2{ font-family:var(--font-heading); font-weight:800; letter-spacing:-0.02em; margin:0; text-wrap:balance; }
+  a{ color:var(--primary); }
+  .shell{ max-width:800px; margin:0 auto; padding:3rem 1.5rem 4.5rem; }
+
+  .brand{ display:flex; align-items:center; gap:.75rem; margin-bottom:2rem; }
+  .brand img{ height:1.75rem; width:auto; display:block; }
+  .brand-divider{ width:1px; height:1.4rem; background:var(--border); }
+  .brand-name{ font-family:var(--font-heading); font-weight:800; font-size:.92rem; }
+
+  .badge{
+    display:inline-flex; align-items:center; border-radius:999px; padding:.32rem .8rem;
+    font-size:.72rem; font-weight:700; background:var(--muted); color:var(--muted-foreground);
+    margin-bottom:1.2rem;
+  }
+  h1{ font-size:clamp(1.7rem,3.6vw,2.3rem); line-height:1.15; margin-bottom:.9rem; }
+  .dek{ color:var(--muted-foreground); font-size:1.02rem; max-width:62ch; margin-bottom:1.8rem; }
+
+  .meta-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:.75rem; margin-bottom:2.4rem; }
+  .meta-tile{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-sm); padding:.85rem 1rem; }
+  .meta-tile .k{ font-size:.62rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--muted-foreground); margin-bottom:.35rem; }
+  .meta-tile .v{ font-family:var(--font-heading); font-weight:800; font-size:1rem; }
+  @media (max-width:640px){ .meta-grid{ grid-template-columns:1fr 1fr; } }
+
+  .section-eyebrow{ font-size:.68rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--muted-foreground); margin:2.4rem 0 1rem; }
+  .section-eyebrow:first-of-type{ margin-top:0; }
+
+  .point-row{ display:flex; flex-direction:column; gap:.7rem; }
+  .point{ display:flex; gap:.85rem; align-items:flex-start; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-sm); padding:1rem 1.15rem; }
+  .point svg{ width:18px; height:18px; color:var(--success); flex-shrink:0; margin-top:.15rem; }
+  .point .pt{ font-weight:700; font-size:.95rem; margin-bottom:.25rem; }
+  .point .pd{ font-size:.87rem; color:var(--muted-foreground); }
+
+  .table-wrap{ overflow-x:auto; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-sm); }
+  table{ width:100%; border-collapse:collapse; font-size:.9rem; }
+  th{
+    text-align:left; font-size:.66rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--muted-foreground); padding:.8rem 1rem; border-bottom:1px solid var(--border); background:var(--muted);
+  }
+  th:first-child{ border-top-left-radius:var(--radius); }
+  th:last-child{ border-top-right-radius:var(--radius); text-align:right; }
+  td{ padding:.9rem 1rem; border-bottom:1px solid var(--border); vertical-align:top; }
+  td:last-child{ text-align:right; font-weight:700; white-space:nowrap; }
+  tr:last-child td{ border-bottom:none; }
+  .milestone-badge{
+    display:inline-flex; align-items:center; justify-content:center; width:1.5rem; height:1.5rem;
+    border-radius:50%; background:var(--muted); color:var(--foreground); font-family:var(--font-heading);
+    font-weight:800; font-size:.72rem; margin-right:.6rem; flex-shrink:0;
+  }
+  .milestone-name{ display:flex; align-items:center; font-weight:600; }
+  tr.total td{ background:var(--muted); font-weight:800; }
+  tr.total .milestone-name{ font-weight:800; }
+
+  .timeline-card{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-sm); padding:1.1rem 1.3rem; }
+  .timeline-headline{ font-family:var(--font-heading); font-weight:800; font-size:1.1rem; margin-bottom:.5rem; }
+  .timeline-card p{ font-size:.9rem; color:var(--muted-foreground); margin:0 0 1rem; }
+  .clause{
+    display:flex; gap:.7rem; align-items:flex-start;
+    background:color-mix(in srgb, var(--accent) 7%, var(--card));
+    border:1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
+    border-radius:.7rem; padding:.85rem 1rem;
+  }
+  .clause svg{ width:17px; height:17px; color:var(--accent); flex-shrink:0; margin-top:.15rem; }
+  .clause .ck{ font-size:.66rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--accent); display:block; margin-bottom:.25rem; }
+  .clause p{ margin:0; font-size:.87rem; color:var(--foreground); }
+
+  .sig{ margin-top:2.5rem; padding-top:1.5rem; border-top:1px dashed var(--border); font-size:.84rem; color:var(--muted-foreground); }
+</style>
+</head>
+<body>
+  <div class="shell">
+
+    <div class="brand">
+      <img src="assets/civentichem-logo.png" alt="CiVentiChem">
+      <div class="brand-divider"></div>
+      <span class="brand-name">Engagement Proposal</span>
+    </div>
+
+    <span class="badge">Confidential, commercial proposal</span>
+    <h1>Project Tracker, Automation &amp; AI Archive Assistant</h1>
+    <p class="dek">A single, phase-wise engagement. Your working demo becomes a deployed production tool, then two further capabilities are built and delivered on top of it.</p>
+
+    <div class="meta-grid">
+      <div class="meta-tile"><div class="k">Prepared for</div><div class="v">CiVentiChem</div></div>
+      <div class="meta-tile"><div class="k">Prepared by</div><div class="v">Rohan Vyas</div></div>
+      <div class="meta-tile"><div class="k">Total investment</div><div class="v">Rs 6,00,000</div></div>
+      <div class="meta-tile"><div class="k">Delivery model</div><div class="v">Solo, AI-first</div></div>
+    </div>
+
+    <div class="section-eyebrow">How this is delivered</div>
+    <div class="point-row">
+      <div class="point">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>
+        <div><div class="pt">Phase 1 is already built</div><div class="pd">The project tracker you've already seen demonstrated is a working product today, not a concept. What remains is understanding your IT environment directly with your team, fine-tuning the tool to your infrastructure, and deploying it on your own server.</div></div>
+      </div>
+      <div class="point">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>
+        <div><div class="pt">Delivered solo, AI-first</div><div class="pd">This engagement is executed by one person, working in an AI-enabled way across design, development, and deployment. No external team or additional manpower is deployed, keeping it lean, accountable, and owned end to end by one point of contact.</div></div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow">Payment milestones</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Milestone</th><th>Payout</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="milestone-name"><span class="milestone-badge">1</span>Version 1 of the dashboard deployed on CiVentiChem's servers</span></td>
+            <td>Rs 1,00,000</td>
+          </tr>
+          <tr>
+            <td><span class="milestone-name"><span class="milestone-badge">2</span>Proposal creation automation deployed</span></td>
+            <td>Rs 2,00,000</td>
+          </tr>
+          <tr>
+            <td><span class="milestone-name"><span class="milestone-badge">3</span>AI chatbot on CiVentiChem's historical archive deployed</span></td>
+            <td>Rs 3,00,000</td>
+          </tr>
+          <tr class="total">
+            <td><span class="milestone-name">Total</span></td>
+            <td>Rs 6,00,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-eyebrow">Timeline</div>
+    <div class="timeline-card">
+      <div class="timeline-headline">Approximately 4 months, delivered phase-wise</div>
+      <p>Each milestone above is delivered and invoiced independently as the corresponding phase goes live.</p>
+      <div class="clause">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4"/><circle cx="12" cy="16.5" r=".5" fill="currentColor"/><path d="M10.3 3.9 2.6 17.5A1.8 1.8 0 0 0 4.2 20h15.6a1.8 1.8 0 0 0 1.6-2.5L13.7 3.9a1.8 1.8 0 0 0-3.4 0Z"/></svg>
+        <div><span class="ck">Timeline clause</span><p>Before finalizing the Phase 2 and Phase 3 schedule, we will jointly discuss and confirm how much time CiVentiChem's team needs to prepare and structure the historical archive data. The overall timeline is planned around 4 months, but will extend proportionally if data readiness takes longer than expected.</p></div>
+      </div>
+    </div>
+
+    <div class="sig">Draft proposal, prepared for internal review before formal acceptance.</div>
+  </div>
+</body>
+</html>
