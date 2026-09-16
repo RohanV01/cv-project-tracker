@@ -222,7 +222,7 @@
     <div class="div"></div>
     <span>AI Roadmap</span>
   </div>
-  <div class="chrome-count"><span id="slideCounter">1 / 7</span></div>
+  <div class="chrome-count"><span id="slideCounter">1 / 6</span></div>
 
   <button class="arrow-btn" id="prevBtn" aria-label="Previous slide">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -329,7 +329,7 @@
           </div>
           <div class="point">
             <span class="pn">3</span>
-            <div><div class="pt">CiVentiChem acquires and deploys the GPU server</div><div class="pd">The gating step: this server unlocks both the rest of Phase 2 and all of Phase 3.</div></div>
+            <div><div class="pt">CiVentiChem acquires and deploys the GPU server</div><div class="pd">The gating step: this server unlocks both the rest of Phase 2 and all of Phase 3. Recommended vendor: <a href="https://www.zotac.com/" target="_blank" rel="noopener noreferrer">Zotac</a>.</div></div>
           </div>
           <div class="point">
             <span class="pn">4</span>
@@ -340,7 +340,7 @@
         <div class="stat-row">
           <div class="stat"><div class="sv">~3,000-4,000</div><div class="sl">historical projects (100/yr &times; 30-40 yrs)</div></div>
           <div class="stat"><div class="sv">~15-200 GB</div><div class="sl">estimated archive size, informs GPU sizing</div></div>
-          <div class="stat"><div class="sv">24 GB VRAM min.</div><div class="sl">GPU spec, e.g. RTX 4090 / A5000 class</div></div>
+          <div class="stat"><div class="sv">24 GB VRAM min.</div><div class="sl">GPU spec, RTX 4090 / A5000 class, Zotac recommended</div></div>
         </div>
 
         <div class="outcome-strip">
@@ -466,36 +466,6 @@
       </div>
     </section>
 
-    <!-- SLIDE 6: CLOSING -->
-    <section class="slide">
-      <div class="slide-inner">
-        <div class="phase-eyebrow"><span class="phase-tag">Beyond this roadmap</span></div>
-        <h2>Standing Constraint &amp; What's Not in Scope Yet</h2>
-        <p class="phase-dek">One requirement runs through every phase above; a few things are deliberately left for later.</p>
-
-        <div class="constraint-strip">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6l-9-4Z"/><path d="m8.5 12 2.5 2.5 4.5-4.5"/></svg>
-          <p>Everything (the application, the archive, and the AI models) runs on hardware CiVentiChem owns and controls. No cloud database, no third-party LLM API, no telemetry, no data egress at any point.</p>
-        </div>
-
-        <div class="closing-grid" style="margin-top:1.2rem;">
-          <div class="closing-card">
-            <h3>Local-only technology stack</h3>
-            <ul>
-              <li>Local LLM runtime, on-disk vector store, local embeddings</li>
-              <li>SQLite / local DB, scheduled local backup, zero telemetry</li>
-            </ul>
-          </div>
-          <div class="closing-card">
-            <h3>Deliberately out of scope, for now</h3>
-            <ul>
-              <li>Commercial terms &amp; pricing, a separate conversation</li>
-              <li>Ongoing support/maintenance retainer, proposed once live</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
 
   </div>
 
