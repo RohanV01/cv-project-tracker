@@ -272,34 +272,37 @@
     <section class="slide">
       <div class="slide-inner">
         <div class="phase-eyebrow"><span class="phase-num">02</span><span class="phase-tag">Phase 2</span></div>
-        <h2>Structure CiVentiChem's Historical Archive</h2>
-        <p class="phase-dek">Before any AI layer is built, the 30-40 years of project history needs to be understood and organized into one structured archive.</p>
+        <h2>GPU Infrastructure &amp; Inquiry Automation</h2>
+        <p class="phase-dek">Before any AI can run locally, CiVentiChem needs the right hardware in place. This phase starts there, then builds the first automation on top of it.</p>
 
         <div class="point-row">
           <div class="point">
             <span class="pn">1</span>
-            <div><div class="pt">Understand the data structure and dataset</div><div class="pd">Catalog how the history actually exists today, Excel trackers, lab notebooks, scanned records, spread across decades and formats.</div></div>
+            <div><div class="pt">Understand the scale and scope of the data</div><div class="pd">Sit with CiVentiChem's team to review the size and shape of the historical archive, this directly drives the GPU sizing decision.</div></div>
           </div>
-        </div>
-
-        <div class="decision">
-          <div class="dk">Decision to make</div>
-          <div class="decision-options">
-            <div class="decision-opt"><div class="ok">Option A</div><div class="od">Rohan's team deploys dedicated manpower in Hyderabad to compile and structure the dataset.</div></div>
-            <div class="decision-opt"><div class="ok">Option B</div><div class="od">CiVentiChem's own team compiles it internally, guided by Rohan's team.</div></div>
+          <div class="point">
+            <span class="pn">2</span>
+            <div><div class="pt">Jointly decide the GPU specification</div><div class="pd">Based on that conversation, agree on the exact GPU required, minimum 24 GB VRAM, sized to the confirmed archive scale rather than over-buying data-center-grade hardware.</div></div>
           </div>
-          <div class="either">Either way: 100% on-prem, at CiVentiChem. The data never leaves their premises, regardless of who does the work.</div>
+          <div class="point">
+            <span class="pn">3</span>
+            <div><div class="pt">CiVentiChem acquires and deploys the GPU server</div><div class="pd">The gating step: this server unlocks both the rest of Phase 2 and all of Phase 3.</div></div>
+          </div>
+          <div class="point">
+            <span class="pn">4</span>
+            <div><div class="pt">Build and deploy Incoming Inquiry Automation</div><div class="pd">Once the server is live, build the automation that turns incoming customer inquiries into structured proposals.</div></div>
+          </div>
         </div>
 
         <div class="stat-row">
           <div class="stat"><div class="sv">~3,000-4,000</div><div class="sl">historical projects (100/yr &times; 30-40 yrs)</div></div>
-          <div class="stat"><div class="sv">~15-200 GB</div><div class="sl">estimated raw archive size</div></div>
-          <div class="stat"><div class="sv">4 TB available</div><div class="sl">comfortably covers archive + backup margin</div></div>
+          <div class="stat"><div class="sv">~15-200 GB</div><div class="sl">estimated archive size, informs GPU sizing</div></div>
+          <div class="stat"><div class="sv">24 GB VRAM min.</div><div class="sl">GPU spec, e.g. RTX 4090 / A5000 class</div></div>
         </div>
 
         <div class="outcome-strip">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>
-          <div><span class="ok">Deliverable</span><p>A single, structured, searchable data archive of CiVentiChem's project history, ready to power Phase 3.</p></div>
+          <div><span class="ok">Deliverable</span><p>A GPU server sized, acquired, and deployed at CiVentiChem, running Incoming Inquiry Automation live.</p></div>
         </div>
       </div>
     </section>
@@ -309,7 +312,7 @@
       <div class="slide-inner">
         <div class="phase-eyebrow"><span class="phase-num">03</span><span class="phase-tag">Phase 3</span></div>
         <h2>Build &amp; Deploy the AI Chatbot on Historical Data</h2>
-        <p class="phase-dek">Turn the structured archive from Phase 2 into a chatbot the team can ask questions of, entirely offline, running on CiVentiChem's own hardware.</p>
+        <p class="phase-dek">Running on the GPU server deployed in Phase 2, turn CiVentiChem's structured history into a chatbot the team can ask questions of, entirely offline.</p>
 
         <div class="point-row">
           <div class="point">
@@ -318,18 +321,10 @@
           </div>
         </div>
 
-        <div class="decision">
-          <div class="dk">Decision to make</div>
-          <div class="either" style="margin-bottom:.6rem;">Based on the IT infrastructure Anirudh shared, the current server (Xeon Gold 5218, 128 GB RAM, no GPU) cannot run this locally as-is.</div>
-          <div class="decision-options" style="grid-template-columns:1fr;">
-            <div class="decision-opt"><div class="ok">Required: a new GPU, minimum 24 GB VRAM</div><div class="od">Sized to the confirmed archive scale (~3,000-4,000 projects), enough headroom for a capable local model with room for concurrent users, without over-buying data-center-grade hardware.</div></div>
-          </div>
-        </div>
-
         <div class="stat-row">
           <div class="stat"><div class="sv">~3,000-4,000</div><div class="sl">documents to index (from Phase 2's archive)</div></div>
           <div class="stat"><div class="sv">Low tens of GB</div><div class="sl">additional storage for the AI layer (index + model)</div></div>
-          <div class="stat"><div class="sv">24 GB VRAM min.</div><div class="sl">new GPU required, e.g. RTX 4090 / A5000 class</div></div>
+          <div class="stat"><div class="sv">Phase 2's GPU server</div><div class="sl">already sized and deployed, no new hardware decision here</div></div>
         </div>
 
         <div class="outcome-strip">
@@ -339,44 +334,40 @@
       </div>
     </section>
 
-    <!-- SLIDE 4: ENGAGEMENT MODELS -->
+    <!-- SLIDE 4: ENGAGEMENT MODEL -->
     <section class="slide">
       <div class="slide-inner">
-        <div class="phase-eyebrow"><span class="phase-tag">Execution options</span></div>
-        <h2>Two Ways to Engage</h2>
-        <p class="phase-dek">Either way, everything stays 100% on-prem at CiVentiChem. What changes is who does the data prep and who sources the hardware.</p>
+        <div class="phase-eyebrow"><span class="phase-tag">How this gets executed</span></div>
+        <h2>Engagement Model</h2>
+        <p class="phase-dek">One clear division of responsibility: software is built and deployed by Rohan; data preparation and hardware acquisition are owned by CiVentiChem.</p>
 
         <div class="engage-grid">
           <div class="engage-card">
             <div class="engage-head">
-              <span class="engage-tag">Model A</span>
-              <h3>Client-Led</h3>
-              <p>CiVentiChem drives infrastructure &amp; data prep</p>
+              <span class="engage-tag">Rohan</span>
+              <h3>Builds &amp; Deploys</h3>
+              <p>Software, end to end</p>
             </div>
             <ul class="engage-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>CiVentiChem sources and procures all hardware (server, GPU, storage)</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>CiVentiChem's own team preps and structures the historical archive, guided by our templates</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>We build, deploy, and configure the software layer on top</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>Builds and deploys all software, the tracker, the inquiry automation, and the chatbot</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>Sits with CiVentiChem's team to review data scale and scope, and jointly decides the GPU specification needed</li>
             </ul>
-            <div class="engage-fit">Best for: teams with in-house IT bandwidth to run hardware procurement and data prep internally.</div>
           </div>
 
           <div class="engage-card engage-card-alt">
             <div class="engage-head">
-              <span class="engage-tag engage-tag-alt">Model B</span>
-              <h3>Managed, Full-Service</h3>
-              <p>We drive infrastructure &amp; data prep</p>
+              <span class="engage-tag engage-tag-alt">CiVentiChem</span>
+              <h3>Preps &amp; Provisions</h3>
+              <p>Data and hardware, on-prem</p>
             </div>
             <ul class="engage-list">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>We deploy a dedicated data team (e.g. in Hyderabad) to prep and structure the archive</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>We specify the exact hardware required; CiVentiChem procures against our spec</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>We build, deploy, and configure the software layer end-to-end</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>Prepares and structures the historical data archive</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5L19 7"/></svg>Acquires and deploys the GPU server, based on the jointly agreed spec</li>
             </ul>
-            <div class="engage-fit">Best for: teams that want a single point of accountability and minimal internal lift.</div>
           </div>
         </div>
 
-        <div class="engage-note">Both models are 100% on-prem. The data and hardware always live at CiVentiChem, only who performs the prep work changes.</div>
+        <div class="engage-note">The GPU server is the gating step, once CiVentiChem deploys it, both the Phase 2 automation and the Phase 3 chatbot unlock.</div>
       </div>
     </section>
 
@@ -398,7 +389,7 @@
             <thead><tr><th>Milestone</th><th>Payout</th></tr></thead>
             <tbody>
               <tr><td><span class="milestone-num">1</span>Version 1 of the dashboard deployed on CiVentiChem's servers</td><td>Rs 1,00,000</td></tr>
-              <tr><td><span class="milestone-num">2</span>Proposal creation automation deployed</td><td>Rs 2,00,000</td></tr>
+              <tr><td><span class="milestone-num">2</span>GPU server deployed &amp; Incoming Inquiry Automation live</td><td>Rs 2,00,000</td></tr>
               <tr><td><span class="milestone-num">3</span>AI chatbot on CiVentiChem's historical archive deployed</td><td>Rs 3,00,000</td></tr>
               <tr class="total"><td>Total</td><td>Rs 6,00,000</td></tr>
             </tbody>
