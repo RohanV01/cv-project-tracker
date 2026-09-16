@@ -123,8 +123,8 @@
   .point .pt{ font-weight:700; font-size:.94rem; margin-bottom:.15rem; }
   .point .pd{ font-size:.87rem; color:var(--muted-foreground); }
 
-  .psv-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:.75rem; margin-bottom:1.4rem; }
-  .psv-card{ border-radius:var(--radius); padding:.85rem 1rem; border:1px solid var(--border); }
+  .psv-grid{ display:flex; align-items:stretch; gap:.75rem; margin-bottom:1.4rem; }
+  .psv-card{ flex:1 1 0; display:flex; flex-direction:column; border-radius:var(--radius); padding:.85rem 1rem; border:1px solid var(--border); }
   .psv-card .psv-label{ display:flex; align-items:center; gap:.4rem; font-size:.66rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; margin-bottom:.5rem; }
   .psv-card .psv-label svg{ width:14px; height:14px; }
   .psv-card p{ font-size:.83rem; color:var(--muted-foreground); line-height:1.5; margin:0; }
@@ -134,7 +134,7 @@
   .psv-solution .psv-label{ color:var(--primary); }
   .psv-value{ background:var(--success-bg); border-color:color-mix(in srgb, var(--success) 30%, var(--border)); }
   .psv-value .psv-label{ color:var(--success); }
-  @media (max-width:820px){ .psv-grid{ grid-template-columns:1fr; } }
+  @media (max-width:820px){ .psv-grid{ flex-direction:column; } }
 
   .decision{
     background:color-mix(in srgb, var(--accent) 7%, var(--card));
@@ -181,8 +181,8 @@
   .video-chip .vp svg{ width:9px; height:9px; }
 
   /* engagement models slide */
-  .engage-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.3rem; }
-  .engage-card{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-sm); padding:1.2rem 1.3rem; }
+  .engage-grid{ display:flex; align-items:stretch; gap:1rem; margin-bottom:1.3rem; }
+  .engage-card{ flex:1 1 0; display:flex; flex-direction:column; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-sm); padding:1.2rem 1.3rem; }
   .engage-card-alt{ border-color:color-mix(in srgb, var(--primary) 35%, var(--border)); box-shadow:var(--shadow-md); }
   .engage-head{ margin-bottom:1rem; }
   .engage-tag{ display:inline-flex; font-size:.68rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; background:var(--muted); color:var(--muted-foreground); border-radius:999px; padding:.25rem .65rem; margin-bottom:.6rem; }
@@ -194,7 +194,7 @@
   .engage-list svg{ width:15px; height:15px; color:var(--success); flex-shrink:0; margin-top:.2rem; }
   .engage-fit{ font-size:.8rem; color:var(--muted-foreground); border-top:1px solid var(--border); padding-top:.75rem; }
   .engage-note{ font-size:.85rem; color:var(--muted-foreground); text-align:center; }
-  @media (max-width:760px){ .engage-grid{ grid-template-columns:1fr; } }
+  @media (max-width:760px){ .engage-grid{ flex-direction:column; } }
 
   /* closing slide */
   .closing-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.4rem; }
