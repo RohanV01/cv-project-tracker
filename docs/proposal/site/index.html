@@ -141,6 +141,16 @@
   .stat .sv{ font-family:var(--font-heading); font-weight:800; font-size:1.25rem; line-height:1.1; }
   .stat .sl{ font-size:.72rem; color:var(--muted-foreground); margin-top:.3rem; }
 
+  .milestone-wrap{ background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-sm); overflow:hidden; margin-bottom:1.3rem; }
+  .milestone-table{ width:100%; border-collapse:collapse; font-size:.88rem; }
+  .milestone-table th{ text-align:left; font-size:.64rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; color:var(--muted-foreground); padding:.7rem .9rem; border-bottom:1px solid var(--border); background:var(--muted); }
+  .milestone-table th:last-child{ text-align:right; }
+  .milestone-table td{ padding:.75rem .9rem; border-bottom:1px solid var(--border); }
+  .milestone-table tr:last-child td{ border-bottom:none; }
+  .milestone-table td:last-child{ text-align:right; font-weight:700; white-space:nowrap; }
+  .milestone-num{ display:inline-flex; align-items:center; justify-content:center; width:1.4rem; height:1.4rem; border-radius:50%; background:var(--muted); color:var(--foreground); font-family:var(--font-heading); font-weight:800; font-size:.68rem; margin-right:.55rem; }
+  .milestone-table tr.total td{ background:var(--muted); font-weight:800; }
+
   .outcome-strip{ display:flex; gap:.7rem; align-items:flex-start; background:var(--success-bg); border-radius:var(--radius); padding:.85rem 1.05rem; }
   .outcome-strip svg{ width:16px; height:16px; color:var(--success); flex-shrink:0; margin-top:.2rem; }
   .outcome-strip .ok{ font-size:.68rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:var(--success); display:block; margin-bottom:.2rem; }
@@ -199,7 +209,7 @@
     <div class="div"></div>
     <span>AI Roadmap</span>
   </div>
-  <div class="chrome-count"><span id="slideCounter">1 / 6</span></div>
+  <div class="chrome-count"><span id="slideCounter">1 / 7</span></div>
 
   <button class="arrow-btn" id="prevBtn" aria-label="Previous slide">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
@@ -370,7 +380,39 @@
       </div>
     </section>
 
-    <!-- SLIDE 5: CLOSING -->
+    <!-- SLIDE 5: COMMERCIAL PROPOSAL -->
+    <section class="slide">
+      <div class="slide-inner">
+        <div class="phase-eyebrow"><span class="phase-tag">Investment &amp; payment terms</span></div>
+        <h2>Commercial Proposal</h2>
+        <p class="phase-dek">A single, phase-wise engagement. Each milestone is delivered and invoiced independently as the corresponding phase goes live.</p>
+
+        <div class="stat-row">
+          <div class="stat"><div class="sv">Rs 6,00,000</div><div class="sl">total investment</div></div>
+          <div class="stat"><div class="sv">Solo, AI-first</div><div class="sl">no external team or added manpower</div></div>
+          <div class="stat"><div class="sv">~4 months</div><div class="sl">delivered phase-wise</div></div>
+        </div>
+
+        <div class="milestone-wrap">
+          <table class="milestone-table">
+            <thead><tr><th>Milestone</th><th>Payout</th></tr></thead>
+            <tbody>
+              <tr><td><span class="milestone-num">1</span>Version 1 of the dashboard deployed on CiVentiChem's servers</td><td>Rs 1,00,000</td></tr>
+              <tr><td><span class="milestone-num">2</span>Proposal creation automation deployed</td><td>Rs 2,00,000</td></tr>
+              <tr><td><span class="milestone-num">3</span>AI chatbot on CiVentiChem's historical archive deployed</td><td>Rs 3,00,000</td></tr>
+              <tr class="total"><td>Total</td><td>Rs 6,00,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="decision">
+          <div class="dk">Timeline clause</div>
+          <div class="either">Before finalizing the Phase 2 and Phase 3 schedule, we will jointly confirm how much time CiVentiChem's team needs to prepare and structure the historical archive data. The ~4-month timeline will extend proportionally if data readiness takes longer than expected.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: CLOSING -->
     <section class="slide">
       <div class="slide-inner">
         <div class="phase-eyebrow"><span class="phase-tag">Beyond this roadmap</span></div>
