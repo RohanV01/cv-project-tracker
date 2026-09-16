@@ -123,6 +123,19 @@
   .point .pt{ font-weight:700; font-size:.94rem; margin-bottom:.15rem; }
   .point .pd{ font-size:.87rem; color:var(--muted-foreground); }
 
+  .psv-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:.75rem; margin-bottom:1.4rem; }
+  .psv-card{ border-radius:var(--radius); padding:.85rem 1rem; border:1px solid var(--border); }
+  .psv-card .psv-label{ display:flex; align-items:center; gap:.4rem; font-size:.66rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase; margin-bottom:.5rem; }
+  .psv-card .psv-label svg{ width:14px; height:14px; }
+  .psv-card p{ font-size:.83rem; color:var(--muted-foreground); line-height:1.5; margin:0; }
+  .psv-problem{ background:color-mix(in srgb, var(--accent) 6%, var(--card)); border-color:color-mix(in srgb, var(--accent) 25%, var(--border)); }
+  .psv-problem .psv-label{ color:var(--accent); }
+  .psv-solution{ background:color-mix(in srgb, var(--primary) 6%, var(--card)); border-color:color-mix(in srgb, var(--primary) 25%, var(--border)); }
+  .psv-solution .psv-label{ color:var(--primary); }
+  .psv-value{ background:var(--success-bg); border-color:color-mix(in srgb, var(--success) 30%, var(--border)); }
+  .psv-value .psv-label{ color:var(--success); }
+  @media (max-width:820px){ .psv-grid{ grid-template-columns:1fr; } }
+
   .decision{
     background:color-mix(in srgb, var(--accent) 7%, var(--card));
     border:1px solid color-mix(in srgb, var(--accent) 30%, var(--border));
@@ -241,6 +254,21 @@
         <h2>From Working Demo to Production Tool</h2>
         <p class="phase-dek">The tracker isn't a mockup, it's already running. This phase turns it into a hardened, production tool CiVentiChem's own team operates day to day.</p>
 
+        <div class="psv-grid">
+          <div class="psv-card psv-problem">
+            <div class="psv-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16" r=".5" fill="currentColor"/></svg>Problem</div>
+            <p>The tracker exists only as a working demo on one machine. CiVentiChem's team can't yet rely on it day to day, and nobody has verified it fits their actual server environment.</p>
+          </div>
+          <div class="psv-card psv-solution">
+            <div class="psv-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Solution</div>
+            <p>Deploy the already-built tracker as a production service on CiVentiChem's own server, after understanding their infrastructure in depth, then train the team to run it independently.</p>
+          </div>
+          <div class="psv-card psv-value">
+            <div class="psv-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L19 7"/></svg>Value unlock</div>
+            <p>A live, owned tool the team uses immediately, on-time/at-risk visibility across every project, with zero license fees, ever.</p>
+          </div>
+        </div>
+
         <div class="point-row">
           <div class="point">
             <span class="pn">1</span>
@@ -274,6 +302,21 @@
         <div class="phase-eyebrow"><span class="phase-num">02</span><span class="phase-tag">Phase 2</span></div>
         <h2>GPU Infrastructure &amp; Inquiry Automation</h2>
         <p class="phase-dek">Before any AI can run locally, CiVentiChem needs the right hardware in place. This phase starts there, then builds the first automation on top of it.</p>
+
+        <div class="psv-grid">
+          <div class="psv-card psv-problem">
+            <div class="psv-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16" r=".5" fill="currentColor"/></svg>Problem</div>
+            <p>There's no AI-capable hardware on-site today, and incoming customer inquiries are still handled manually, with no structured way to turn them into proposals quickly.</p>
+          </div>
+          <div class="psv-card psv-solution">
+            <div class="psv-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Solution</div>
+            <p>Jointly size and deploy a GPU server matched to CiVentiChem's real data scale, then build automation that turns incoming inquiries into structured proposals.</p>
+          </div>
+          <div class="psv-card psv-value">
+            <div class="psv-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L19 7"/></svg>Value unlock</div>
+            <p>Faster inquiry-to-proposal turnaround, less manual drafting effort, and the infrastructure now in place to power the AI chatbot in Phase 3.</p>
+          </div>
+        </div>
 
         <div class="point-row">
           <div class="point">
@@ -313,6 +356,21 @@
         <div class="phase-eyebrow"><span class="phase-num">03</span><span class="phase-tag">Phase 3</span></div>
         <h2>Build &amp; Deploy the AI Chatbot on Historical Data</h2>
         <p class="phase-dek">Running on the GPU server deployed in Phase 2, turn CiVentiChem's structured history into a chatbot the team can ask questions of, entirely offline.</p>
+
+        <div class="psv-grid">
+          <div class="psv-card psv-problem">
+            <div class="psv-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16" r=".5" fill="currentColor"/></svg>Problem</div>
+            <p>30-40 years of institutional chemistry knowledge sits in notebooks and files nobody can search, and it disappears when senior chemists retire.</p>
+          </div>
+          <div class="psv-card psv-solution">
+            <div class="psv-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Solution</div>
+            <p>Build a chatbot on top of the structured archive, running entirely offline on the GPU server from Phase 2, that answers questions grounded in CiVentiChem's own project history.</p>
+          </div>
+          <div class="psv-card psv-value">
+            <div class="psv-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L19 7"/></svg>Value unlock</div>
+            <p>Institutional memory becomes a searchable, permanent asset, faster problem-solving, less repeated R&amp;D effort, and a differentiator no ERP or generic tool offers.</p>
+          </div>
+        </div>
 
         <div class="point-row">
           <div class="point">
@@ -394,6 +452,11 @@
               <tr class="total"><td>Total</td><td>Rs 6,00,000</td></tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="decision" style="margin-bottom:1rem;">
+          <div class="dk">Maintenance</div>
+          <div class="either">Post-launch maintenance and support is billed hourly, as needed, and is not included in the Rs 6,00,000 above. Rate to be confirmed and agreed separately before go-live.</div>
         </div>
 
         <div class="decision">
